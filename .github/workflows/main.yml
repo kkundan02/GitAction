@@ -1,0 +1,21 @@
+name: Run Python Script on Main Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run Python file
+        run: python script.py
